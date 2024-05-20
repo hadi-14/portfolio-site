@@ -27,16 +27,16 @@ const NavBar = () => {
   return (
     <nav className={`w-full bg-navbar p-6 fixed top-${isScrolled ? '0' : '12'} left-0 z-50 transition-all duration-300 ${isScrolled ? 'shadow-custom-dark' : ''}`}>
       <div className={`container mx-auto flex justify-between items-center relative ${isScrolled ? 'pt-1 pb-1 transition-all duration-300' : 'pt-5 pb-5  pl-3 pr-3 transition-all duration-300'}`}>
-        <a href="#" className="text-3xl font-bold">
+        <a href="#" className="text-3xl font-bold hover-text-5xl">
           <span className="bg-gradient-to-r from-gradient2 to-gradient1 bg-clip-text text-transparent text-5xl">AHM</span>
         </a>
 
         <div className="hidden md:flex space-x-6 text-gray-300">
-          <a href="#" className='hover:text-white'>Home</a>
-          <a href="#" className='hover:text-white'>About</a>
-          <a href="#" className='hover:text-white'>Services</a>
-          <a href="#" className='hover:text-white'>Contact</a>
-        </div>
+          <a href="#" className='hover:text-white font-mono text-2xl'>Home <span className="opacity-50">/&gt;</span></a>
+          <a href="#" className='hover:text-white font-mono text-2xl'>About <span className="opacity-50">/&gt;</span></a>
+          <a href="#" className='hover:text-white font-mono text-2xl'>Services <span className="opacity-50">/&gt;</span></a>
+          <a href="#" className='hover:text-white font-mono text-2xl'>Contact <span className="opacity-50">/&gt;</span></a >
+        </div >
         <div className="md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -53,7 +53,7 @@ const NavBar = () => {
             )}
           </button>
         </div>
-      </div>
+      </div >
       {isOpen && (
         <div className="md:hidden flex flex-col space-y-4 mt-4 p-4 text-gray-300">
           <a href="#" className='hover:text-white'>Home</a>
@@ -62,7 +62,7 @@ const NavBar = () => {
           <a href="#" className='hover:text-white'>Contact</a>
         </div>
       )}
-    </nav>
+    </nav >
   );
 };
 

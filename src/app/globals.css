@@ -28,3 +28,7 @@ body {
     text-wrap: balance;
   }
 }
+
+.hover-text-5xl:hover>.bg-gradient-text {
+  font-size: 5rem;
+}

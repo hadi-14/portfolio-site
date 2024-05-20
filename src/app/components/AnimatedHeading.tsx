@@ -48,16 +48,16 @@ const AnimatedHeading: React.FC = () => {
     return (
         <div className="flex flex-col p-4 md:pl-16">
             <div className="flex flex-col md:flex-row items-center">
-                <h2 className="text-lg md:text-2xl font-thin">Hi, My name is</h2>
-                <h1 className="font-bold bg-gradient-to-r from-gradient2 to-gradient1 bg-clip-text text-transparent text-2xl md:text-4xl md:pl-3">Abdul Hadi Millwala</h1>
+                <h2 className="text-lg md:text-2xl font-thin">Hi, I am</h2>
+                <h1 className="font-bold bg-gradient-to-r from-gradient2 to-gradient1 bg-clip-text text-transparent text-2xl md:text-4xl md:pl-3">Abdul Hadi Millwala,</h1>
             </div>
-            <div className="flex items-center md:flex-col md:items-start md:flex">
-                <h2 className="text-lg md:text-2xl font-thin">I am a</h2>
+            <div className="flex items-center md:flex-row md:items-start md:flex">
+                <h2 className="text-lg md:text-2xl font-thin md:pt-3">A</h2>
                 <h1 className="text-2xl md:text-5xl text-foreground font-mono md:pl-4 pl-2">
                     {displayText}
                 </h1>
             </div>
-        </div>
+        </div >
     );
 };
 

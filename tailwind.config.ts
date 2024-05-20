@@ -19,7 +19,7 @@ const config: Config = {
         navbar: '#040D12',
         gradient1: '#4DFFF3',
         gradient2: '#735290',
-        foreground: '#069E2D',
+        foreground: '#00FF00',
       },
       boxShadow: {
         'custom-dark': '0 10px 35px rgba(0, 0, 0, 0.95)',

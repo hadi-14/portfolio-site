@@ -4,13 +4,11 @@ import AnimatedHeading from "./components/AnimatedHeading";
 
 export default function Home() {
   const repeatComponent = (times: number, render: (index: number) => JSX.Element) => {
-    return Array.from({ length: times }).map((_, index) =>
-      render(index)
-    );
+    return Array.from({ length: times }).map((_, index) => render(index));
   };
 
   return (
-    <main className="min-h-screen flex flex-col bg-background text-white">
+    <main className="min-h-screen flex flex-col bg-background text-textPrimary">
       {repeatComponent(4, (index) => <br key={index} />)}
 
       <div className="flex flex-col-reverse md:flex-row items-center justify-between w-full px-4 md:px-12">
