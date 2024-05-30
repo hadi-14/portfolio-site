@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const titles = ["Hacker", "Data Scientist", "Software Engineer", "Web Developer", "AI Specialist"];
+const titles = ["Data Scientist", "Hacker", "Software Engineer", "Web Developer", "AI Specialist"];
 const corruptionDuration = 500;
 const transitionInterval = 3000;
 
@@ -46,14 +46,14 @@ const AnimatedHeading: React.FC = () => {
     }, [currentTitle]);
 
     return (
-        <div className="flex flex-col p-4 md:pl-16">
+        <div className="flex flex-col">
             <div className="flex flex-col md:flex-row items-center">
                 <h2 className="text-lg md:text-2xl font-thin">Hi, I am</h2>
-                <h1 className="font-bold bg-gradient-to-r from-gradient2 to-gradient1 bg-clip-text text-transparent text-2xl md:text-4xl md:pl-3">Abdul Hadi Millwala,</h1>
+                <h1 className="font-bold bg-gradient-to-r from-secondary-500 to-secondary-400 bg-clip-text text-transparent text-2xl md:text-4xl md:pl-3">Abdul Hadi Millwala,</h1>
             </div>
-            <div className="flex items-center md:flex-row md:items-start md:flex">
+            <div className="flex items-center flex-row md:items-start">
                 <h2 className="text-lg md:text-2xl font-thin md:pt-3">A</h2>
-                <h1 className="text-2xl md:text-5xl text-foreground font-mono md:pl-4 pl-2">
+                <h1 className="text-2xl md:text-5xl text-primary-500 font-mono md:pl-4 pl-2 bg-clip-text">
                     {displayText}
                 </h1>
             </div>
