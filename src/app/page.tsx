@@ -4,7 +4,6 @@ import AsciiArt from "./components/AsciiArt";
 import AnimatedHeading from "./components/AnimatedHeading";
 import LoadingAnimation from "./components/LoadingAnimation";
 import NavBar from "./components/Navbar";
-import Link from 'next/link';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
