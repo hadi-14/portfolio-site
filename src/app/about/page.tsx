@@ -1,74 +1,112 @@
 // about.tsx
-"use client"
-import { useEffect, useState } from "react";
-import AsciiArt from "../components/AsciiArt";
-import AnimatedHeading from "../components/AnimatedHeading";
-import LoadingAnimation from "../components/LoadingAnimation";
-import NavBar from "../components/Navbar";
+"use client";
 
-export default function About() {
-  const [isLoading, setIsLoading] = useState(true);
+import React from 'react';
+import NavBar from "@/app/components/Navbar";
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 3000); // Adjust the loading duration as needed
+interface Education {
+  title: string;
+  institution: string;
+  years: string;
+  rating: string;
+  description: string;
+}
 
-    return () => clearTimeout(timer);
-  }, []);
+interface Experience {
+  title: string;
+  company: string;
+  years: string;
+  rating: string;
+  description: string;
+}
 
-  const repeatComponent = (
-    times: number,
-    render: (index: number) => JSX.Element
-  ) => {
-    return Array.from({ length: times }).map((_, index) => render(index));
-  };
+const education: Education[] = [
+  {
+    title: 'Ph.D Degree',
+    institution: 'University of DVI',
+    years: '2026-2030',
+    rating: '4.30/5',
+    description:
+      'The education should be very interactual. Ut tincidunt est ac dolor aliquam sodales. Phasellus sed mauris hendrerit, laoreet sem in, lobortis mauris hendrerit ante.',
+  },
+  {
+    title: 'Masters Degree In AI',
+    institution: 'College of Studies',
+    years: '2023-2026',
+    rating: '4.50/5',
+    description:
+      'Maecenas finibus nec sem ut imperdiet. Ut tincidunt est ac dolor aliquam sodales. Phasellus sed mauris hendrerit, laoreet sem in, lobortis mauris hendrerit ante.',
+  },
+  {
+    title: 'Bachelor of Computer Science and Technology',
+    institution: 'University of Posts and Telecommunications',
+    years: '2019-2023',
+    rating: '3.50/4.00',
+    description: '',
+  },
+];
 
-  // if (isLoading) {
-  //   return <LoadingAnimation />;
-  // }
+const experience: Experience[] = [
+  {
+    title: 'Web Designer',
+    company: 'net2life',
+    years: '2020-2023',
+    rating: '4.95/5',
+    description:
+      'Making websites. Installed and maintained the company\'s database systems and network. Performed upgrades and installed updates. Completed troubleshooting and repair when computers had problems. Conducted computer technology training with all new staff.',
+  },
+  {
+    title: 'IT Support',
+    company: 'net2life',
+    years: '2018-2019',
+    rating: '5.00/5',
+    description:
+      'Installed and maintained the company\'s computer systems and network. Performed upgrades and installed updates. Completed troubleshooting and repair when computers had problems. Conducted computer technology training with all new staff.',
+  },
+];
 
+const About = () => {
   return (
-    <main className="min-h-screen flex flex-col bg-background-900">
-      {repeatComponent(6, (index) => (
-        <br key={index} />
-      ))}
+    <div className="min-h-screen flex flex-col bg-background-900 text-text-100">
       <NavBar />
-
-      <div className="flex flex-col-reverse md:flex-row items-center justify-between w-full px-4 md:px-12">
-        <div className="flex-grow md:flex-grow-0 md:pl-8 md:max-w-screen-sm">
-          <AnimatedHeading />
-          <br />
-          <div className="text-text-500 text-pretty">
-            <h2 className="text-2xl font-bold text-white mb-4">Abdul Hadi</h2>
-            <p className="mb-2">
-              <strong>Professional Summary:</strong> Python expert with 3+ years of experience in web scraping, data mining, and automation. Proficient in Django, Flask, and Unity development. Committed to delivering high-quality results and providing punctual, responsible service.
-            </p>
-            <p className="mb-2">
-              <strong>Experience:</strong>
-              <br />
-              - Web Scraping Engineer at XYZ Corp (2019 - Present)
-              <br />
-              - Python Developer at ABC Company (2017 - 2019)
-            </p>
-            <p className="mb-2">
-              <strong>Education:</strong>
-              <br />
-              - Bachelor of Computer Science, University of XYZ (2013 - 2017)
-            </p>
-            <p>
-              <strong>Skills:</strong> Python, Django, Flask, Unity, Web Scraping, Data Mining
-            </p>
+      <div className="container mx-auto p-4 pt-6 md:p-6 lg:p-12">
+        <br /><br /><br /><br /><br />
+        <h1 className="text-3xl font-bold text-primary-500 mb-8">About Me</h1>
+        <div className="flex flex-wrap -mx-4">
+          <div className="w-full md:w-1/2 xl:w-1/2 p-4">
+            <h2 className="text-2xl font-bold text-secondary-500 mb-4">Education</h2>
+            <ul className="border-l-4 border-primary-500 pl-4">
+              {education.map((edu, index) => (
+                <li key={index} className="mb-8">
+                  <div className="pl-4 border-l-2 border-background-700">
+                    <h3 className="text-lg font-bold text-accent-500">{edu.title}</h3>
+                    <p className="text-text-300">{edu.institution} ({edu.years})</p>
+                    <p className="text-text-300">Rating: {edu.rating}</p>
+                    <p className="text-text-300">{edu.description}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="w-full md:w-1/2 xl:w-1/2 p-4">
+            <h2 className="text-2xl font-bold text-secondary-500 mb-4">Experience</h2>
+            <ul className="border-l-4 border-primary-500 pl-4">
+              {experience.map((exp, index) => (
+                <li key={index} className="mb-8">
+                  <div className="pl-4 border-l-2 border-background-700">
+                    <h3 className="text-lg font-bold text-accent-500">{exp.title}</h3>
+                    <p className="text-text-300">{exp.company} ({exp.years})</p>
+                    <p className="text-text-300">Rating: {exp.rating}</p>
+                    <p className="text-text-300">{exp.description}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-        <div className="flex-grow md:flex-grow-0 md:pr-8 md:min-w-fit">
-          <AsciiArt />
-        </div>
       </div>
-
-      {repeatComponent(100, (index) => (
-        <br key={index} />
-      ))}
-    </main>
+    </div >
   );
-}
+};
+
+export default About;
