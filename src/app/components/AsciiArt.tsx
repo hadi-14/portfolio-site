@@ -26,7 +26,7 @@ const AsciiArt: React.FC = () => {
   }, []);
 
   return (
-    <div className="text-text-100 font-mono p-4 whitespace-pre-wrap text-[2px] md:text-[3px] tracking-[0.2px] md:tracking-[0.3px] text-right">
+    <div className="text-text-100 font-mono p-4 whitespace-pre-wrap text-[2px] md:text-[5px] tracking-[0.2px] md:tracking-[0.3px] text-right">
       {art}
     </div>
   );

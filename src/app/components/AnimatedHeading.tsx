@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const titles = ["Data Scientist", "Hacker", "Software Engineer", "Web Developer", "AI Specialist"];
+const titles = ["Data Scientist", "Hacker", "Software Engineer", "Web Developer", "AI Specialist", "Mobile Dev"];
 const corruptionDuration = 500;
 const transitionInterval = 3000;
 

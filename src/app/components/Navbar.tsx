@@ -26,7 +26,7 @@ const NavBar = () => {
 
   return (
     <nav className={`w-full bg-background-900 rounded-b-[50px] p-6 fixed top-${isScrolled ? '0' : '12'} left-0 z-50 transition-all duration-300 ${isScrolled ? 'shadow-custom-dark' : ''}`}>
-      <div className={`container mx-auto flex justify-between items-center relative ${isScrolled ? 'pt-0 pb-0' : 'pt-2 pb-2  pl-3 pr-3'} transition-all duration-300 ${!isScrolled ? 'bounce' : ''}`}>
+      <div className={` mx-10 flex justify-between items-center relative ${isScrolled ? 'pt-0 pb-0' : 'pt-2 pb-2  pl-3 pr-3'} transition-all duration-300 ${!isScrolled ? 'bounce' : ''}`}>
         <Link href="#" className="text-3xl font-bold pl-4">
           <Image
             src="/logo1.png"
