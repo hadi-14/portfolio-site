@@ -38,14 +38,8 @@ export default function Home() {
         <div className="flex-grow md:flex-grow-0 md:pl-8 md:max-w-screen-sm">
           <AnimatedHeading />
           <br />
-          <p className="text-text-500 text-pretty">
-            I am Abdul Hadi, a Python expert with 3+ years of experience in web
-            scraping, data mining, and automation. I guarantee high-quality
-            results, tailored to your needs. I am skilled in Django, Flask, and
-            Unity development, and I offer punctual, responsible service to help
-            you achieve your goals. Let&apos;s transform your ideas into reality
-            together!
-          </p>
+          <p className="text-text-500 text-pretty">           
+            I am Abdul Hadi, a dedicated software engineer passionate about creating solutions that improve lives. My expertise spans website development, mobile app development, game development, AI, and data extraction. Skilled in Python, Flutter, Next.js, and Unity, I deliver reliable, punctual, and high-quality services tailored to your needs. Let’s work together to bring your ideas to life and achieve your goals!          </p>
         </div>
         <div className="flex-grow md:flex-grow-0 md:pr-8 md:min-w-fit">
           <AsciiArt />
