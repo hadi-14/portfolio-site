@@ -33,10 +33,10 @@ export default function GridBackground() {
     const EFFECT_RADIUS = 220;
     const BULGE_STRENGTH = 18;
 
-    const BASE_ALPHA = 0.06;
-    const GLOW_ALPHA = 0.7;
+    const BASE_ALPHA = 0.1;
+    const GLOW_ALPHA = 0.2;
     const BASE_WIDTH = 0.5;
-    const GLOW_WIDTH = 1.4;
+    const GLOW_WIDTH = 1.0;
 
     const displaced = (gx: number, gy: number): [number, number] => {
       const dx = gx - mouseX;
