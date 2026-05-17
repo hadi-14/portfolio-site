@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} fixed inset-0 overflow-hidden`}>
-        <GridBackground/ >
+        <GridBackground />
         <Sidebar />
         <main className="md:ml-[280px] overflow-y-auto h-screen">
           {children}
@@ -39,4 +39,3 @@ export default function RootLayout({
     </html>
   );
 }
- 

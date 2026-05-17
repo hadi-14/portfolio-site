@@ -1,6 +1,7 @@
 import prisma from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import AdminControls from "@/app/components/AdminControls";
 import { ArrowLeft, ExternalLink, GitBranch, Tag, Calendar } from "lucide-react";
 
 export const dynamic = "force-dynamic";
@@ -100,6 +101,8 @@ export default async function ProjectDetailPage({
           <Calendar size={12} />
           Added {date}
         </div>
+
+        <AdminControls projectId={project.id} />
       </div>
     </main>
   );

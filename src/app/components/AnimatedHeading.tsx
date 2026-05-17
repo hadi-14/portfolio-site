@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useState } from 'react';
 
 const titles = ["Data Scientist", "Hacker", "Software Engineer", "Web Developer", "AI Specialist", "Mobile Dev"];

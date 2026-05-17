@@ -18,6 +18,7 @@ model Project {
   description String
   longDesc    String?
   techStack   String   // comma-separated tags
+  category    String?  // project category
   githubUrl   String?
   liveUrl     String?
   imageUrl    String?
