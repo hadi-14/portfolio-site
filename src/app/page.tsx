@@ -1,67 +1,29 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import AsciiArt from "./components/AsciiArt";
 import AnimatedHeading from "./components/AnimatedHeading";
 import ProjectCard from "./components/ProjectCard";
 import Link from "next/link";
+import prisma from "@/lib/prisma";
 import {
-  Code2, Database, Smartphone, Globe, BarChart3,
-  Mail, Phone, MapPin, GitBranch, ExternalLink, Award, Briefcase, GraduationCap, ArrowRight
+  Mail,
+  Phone,
+  MapPin,
+  GitBranch,
+  ExternalLink,
+  Award,
+  Briefcase,
+  GraduationCap,
+  ArrowRight,
 } from "lucide-react";
+import { skills, experience, education, certifications, contactCards, socialLinks } from "@/lib/resumeData";
 
-const skills = {
-  Languages: ["Python", "SQL", "JavaScript", "TypeScript", "HTML", "CSS"],
-  Frameworks: ["Next.js", "React", "Express.js", "Flutter", "Unity", "Pandas", "NumPy"],
-  Tools: ["Power BI", "PostgreSQL", "Firebase", "Git", "Ubuntu", "MsSQL", "Excel"],
-  Platforms: ["VS Code", "Jupyter Notebook", "Node.js", "Vercel"],
-};
+export const dynamic = "force-dynamic";
 
-const experience = [
-  {
-    role: "Junior Developer",
-    company: "Datazeb",
-    period: "2022 – 2026",
-    highlights: [
-      "Built scalable apps using Flutter (mobile/desktop) and React (web), integrated APIs like Erply with incremental loading",
-      "Processed 5M+ records into SQL Server/PostgreSQL and delivered insights via Power BI dashboards",
-      "Improved data sync efficiency by 30% and collaborated cross-functionally for delivery and QA",
-    ],
-  },
-];
-
-const education = [
-  { school: "Heuser College", level: "A-Level", period: "2025 – 2027" },
-  { school: "BVS Parsi High School", level: "O-Level", period: "2014 – 2025" },
-];
-
-const certifications = [
-  "Cisco: Introduction to IoT – Basics of IoT and data analytics",
-  "Cisco: IT Essentials – Hardware, OS, and troubleshooting fundamentals",
-  "Cisco: Introduction to Cybersecurity – Cyber threats and defense principles",
-  "Dhroraji: Computer Hardware, IoT (Big Data, Connecting Things), RPA basics",
-];
-
-interface Project {
-  id: string;
-  title: string;
-  slug: string;
-  description: string;
-  techStack: string;
-  githubUrl?: string | null;
-  liveUrl?: string | null;
-  featured: boolean;
-}
-
-export default function Home() {
-  const [featuredProjects, setFeaturedProjects] = useState<Project[]>([]);
-
-  useEffect(() => {
-    fetch("/api/projects")
-      .then((r) => r.json())
-      .then((data: Project[]) => setFeaturedProjects(data.filter((p) => p.featured).slice(0, 3)))
-      .catch(() => { });
-  }, []);
+export default async function Home() {
+  const featuredProjects = await prisma.project.findMany({
+    where: { featured: true },
+    orderBy: { createdAt: "desc" },
+    take: 3,
+  });
 
   return (
     <>
@@ -139,7 +101,17 @@ export default function Home() {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {featuredProjects.map((p) => (
-                <ProjectCard key={p.id} {...p} />
+                <ProjectCard
+                  key={p.id}
+                  id={p.id}
+                  title={p.title}
+                  slug={p.slug}
+                  description={p.description}
+                  techStack={p.techStack}
+                  githubUrl={p.githubUrl}
+                  liveUrl={p.liveUrl}
+                  featured={p.featured}
+                />
               ))}
             </div>
           )}
@@ -214,11 +186,7 @@ export default function Home() {
           <p className="font-mono text-green-400/60 text-xs uppercase tracking-widest mb-2">~/contact</p>
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-10">Get in Touch</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {[
-              { icon: Mail, label: "Email", value: "hadimillwala@gmail.com", href: "mailto:hadimillwala@gmail.com" },
-              { icon: Phone, label: "Phone", value: "+92 331 2288129", href: "tel:+923312288129" },
-              { icon: MapPin, label: "Location", value: "Garden East, Karachi, Pakistan", href: "#" },
-            ].map(({ icon: Icon, label, value, href }) => (
+            {contactCards.map(({ icon: Icon, label, value, href }) => (
               <a
                 key={label}
                 href={href}
@@ -233,13 +201,13 @@ export default function Home() {
             ))}
           </div>
           <div className="mt-6 flex gap-4">
-            <a href="https://github.com/hadi-14" target="_blank" rel="noopener noreferrer"
+            <a href={socialLinks[0].href} target="_blank" rel="noopener noreferrer"
               className="flex items-center gap-2 text-sm font-mono px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white/50 hover:text-white hover:border-white/30 transition-all">
-              <GitBranch size={14} /> GitHub
+              <GitBranch size={14} /> {socialLinks[0].label}
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+            <a href={socialLinks[1].href} target="_blank" rel="noopener noreferrer"
               className="flex items-center gap-2 text-sm font-mono px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white/50 hover:text-white hover:border-white/30 transition-all">
-              <ExternalLink size={14} /> LinkedIn
+              <ExternalLink size={14} /> {socialLinks[1].label}
             </a>
           </div>
         </div>
